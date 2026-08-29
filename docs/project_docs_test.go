@@ -20,8 +20,19 @@ func TestRepositoryTrustSurfaces(t *testing.T) {
 			path: "README.md",
 			contains: []string{
 				"[Contributing](CONTRIBUTING.md)",
+				"[License](LICENSE)",
 				"[Security](SECURITY.md)",
 				"[Support](SUPPORT.md)",
+			},
+		},
+		{
+			name: "LICENSE publishes reuse terms",
+			path: "LICENSE",
+			contains: []string{
+				"MIT License",
+				"operator-runbook-temporal-go contributors",
+				"Permission is hereby granted, free of charge",
+				"THE SOFTWARE IS PROVIDED \"AS IS\"",
 			},
 		},
 		{

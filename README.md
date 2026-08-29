@@ -55,5 +55,6 @@ results.
 ## Project
 
 - [Contributing](CONTRIBUTING.md)
+- [License](LICENSE)
 - [Security](SECURITY.md)
 - [Support](SUPPORT.md)

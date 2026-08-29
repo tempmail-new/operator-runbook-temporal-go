@@ -51,3 +51,9 @@ results.
 
 - [Architecture](docs/architecture.md)
 - [Local Temporal quickstart](docs/local-temporal-quickstart.md)
+
+## Project
+
+- [Contributing](CONTRIBUTING.md)
+- [Security](SECURITY.md)
+- [Support](SUPPORT.md)

@@ -19,6 +19,7 @@ func TestRepositoryTrustSurfaces(t *testing.T) {
 			name: "README links trust surfaces",
 			path: "README.md",
 			contains: []string{
+				"[Release checklist](docs/release-checklist.md)",
 				"[Contributing](CONTRIBUTING.md)",
 				"[License](LICENSE)",
 				"[Security](SECURITY.md)",
@@ -43,6 +44,18 @@ func TestRepositoryTrustSurfaces(t *testing.T) {
 				"go vet ./...",
 				"go test ./...",
 				"workflow code deterministic",
+				"docs/release-checklist.md",
+			},
+		},
+		{
+			name: "release checklist defines publish hygiene",
+			path: "docs/release-checklist.md",
+			contains: []string{
+				"semantic versions",
+				"go build ./...",
+				"hosted",
+				"production deployment manifests",
+				"annotated tag",
 			},
 		},
 		{

@@ -43,3 +43,6 @@ go test ./...
 Document any validation you could not run and why. Do not include secrets,
 Temporal credentials, incident details, or private target names in issues, pull
 requests, logs, screenshots, or test fixtures.
+
+Use `docs/release-checklist.md` before publishing a tag so versioning, release
+notes, validation evidence, and release-scope boundaries stay consistent.

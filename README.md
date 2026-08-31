@@ -3,10 +3,10 @@
 Durable operator runbook orchestration proof in Go and Temporal.
 
 This repository demonstrates one narrow runbook workflow: check an operator
-target, record the verdict, and request a human remediation step when the mocked
-health check reports an unhealthy target. The first slice is intentionally small
-so the workflow boundary, local development path, and deterministic tests stay
-easy to inspect.
+target, record the verdict, and request a human remediation step when the
+synthetic health check reports an unhealthy target. The first slice is
+intentionally small so the workflow boundary, local development path, and
+deterministic tests stay easy to inspect.
 
 ## What is included
 
@@ -44,13 +44,22 @@ go run ./cmd/start-runbook -runbook-id demo -target checkout
 ```
 
 The starter prints the workflow result as JSON. The default activities return a
-healthy synthetic check; tests cover the unhealthy path by mocking activity
-results.
+healthy synthetic check.
+
+Run the local remediation proof:
+
+```sh
+go run ./cmd/start-runbook -runbook-id demo-unhealthy -target checkout -simulate-unhealthy
+```
+
+The starter prints a `needs_operator` verdict with a synthetic remediation
+request. See the remediation quickstart for the full local flow.
 
 ## Documentation
 
 - [Architecture](docs/architecture.md)
 - [Local Temporal quickstart](docs/local-temporal-quickstart.md)
+- [Remediation path quickstart](docs/remediation-path-quickstart.md)
 - [Release checklist](docs/release-checklist.md)
 - [Workflow contract](docs/workflow-contract.md)
 

@@ -19,8 +19,9 @@ const (
 )
 
 type RunbookInput struct {
-	RunbookID string `json:"runbook_id"`
-	Target    string `json:"target"`
+	RunbookID         string `json:"runbook_id"`
+	Target            string `json:"target"`
+	SimulateUnhealthy bool   `json:"simulate_unhealthy,omitempty"`
 }
 
 func (i RunbookInput) Validate() error {
@@ -34,7 +35,8 @@ func (i RunbookInput) Validate() error {
 }
 
 type HealthCheckRequest struct {
-	Target string `json:"target"`
+	Target            string `json:"target"`
+	SimulateUnhealthy bool   `json:"simulate_unhealthy,omitempty"`
 }
 
 type HealthCheckResult struct {
@@ -76,7 +78,10 @@ func OperatorRunbookWorkflow(ctx workflow.Context, input RunbookInput) (RunbookR
 	})
 
 	var check HealthCheckResult
-	checkRequest := HealthCheckRequest{Target: input.Target}
+	checkRequest := HealthCheckRequest{
+		Target:            input.Target,
+		SimulateUnhealthy: input.SimulateUnhealthy,
+	}
 	if err := workflow.ExecuteActivity(ctx, RunHealthCheck, checkRequest).Get(ctx, &check); err != nil {
 		return RunbookResult{}, fmt.Errorf("run health check: %w", err)
 	}
@@ -108,6 +113,14 @@ func OperatorRunbookWorkflow(ctx workflow.Context, input RunbookInput) (RunbookR
 func RunHealthCheck(ctx context.Context, request HealthCheckRequest) (HealthCheckResult, error) {
 	if request.Target == "" {
 		return HealthCheckResult{}, errors.New("target is required")
+	}
+
+	if request.SimulateUnhealthy {
+		return HealthCheckResult{
+			Target: request.Target,
+			Status: HealthStatusUnhealthy,
+			Detail: "synthetic health check failed by request",
+		}, nil
 	}
 
 	return HealthCheckResult{

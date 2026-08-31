@@ -47,6 +47,10 @@ go run ./cmd/start-runbook -runbook-id demo -target checkout
 The starter prints a JSON result with the runbook ID, target, verdict, and
 recorded checks.
 
+To prove the operator remediation branch without editing source, run the
+[remediation path quickstart](remediation-path-quickstart.md) with the starter's
+`-simulate-unhealthy` flag.
+
 ## Configuration
 
 Both commands use these environment variables:

@@ -20,6 +20,7 @@ func TestRepositoryTrustSurfaces(t *testing.T) {
 			path: "README.md",
 			contains: []string{
 				"[Release checklist](docs/release-checklist.md)",
+				"[Workflow contract](docs/workflow-contract.md)",
 				"[Contributing](CONTRIBUTING.md)",
 				"[License](LICENSE)",
 				"[Security](SECURITY.md)",
@@ -56,6 +57,31 @@ func TestRepositoryTrustSurfaces(t *testing.T) {
 				"hosted",
 				"production deployment manifests",
 				"annotated tag",
+			},
+		},
+		{
+			name: "workflow contract defines runtime boundary",
+			path: "docs/workflow-contract.md",
+			contains: []string{
+				"runbook.OperatorRunbookWorkflow",
+				"runbook.RunbookInput",
+				"runbook.RunbookResult",
+				"`healthy`",
+				"`needs_operator`",
+				"`RunHealthCheck`",
+				"`RequestHumanRemediation`",
+				"`MaximumAttempts`: `2`",
+				"`run health check`",
+				"`request remediation`",
+			},
+		},
+		{
+			name: "architecture links workflow contract",
+			path: "docs/architecture.md",
+			contains: []string{
+				"[workflow contract](workflow-contract.md)",
+				"input, result",
+				"retry/error expectations",
 			},
 		},
 		{

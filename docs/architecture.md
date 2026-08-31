@@ -8,7 +8,9 @@ HTTP APIs, user interfaces, or additional workflows.
 
 - `runbook.OperatorRunbookWorkflow` is the only workflow. It validates the
   requested runbook, schedules a health-check activity, and returns either a
-  healthy verdict or a remediation-request verdict.
+  healthy verdict or a remediation-request verdict. The public input, result,
+  verdict, activity, and retry/error expectations are documented in the
+  [workflow contract](workflow-contract.md).
 - `runbook.RunHealthCheck` is the first activity boundary. The default
   implementation returns a synthetic healthy result so local development is
   self-contained.

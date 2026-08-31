@@ -52,6 +52,7 @@ results.
 - [Architecture](docs/architecture.md)
 - [Local Temporal quickstart](docs/local-temporal-quickstart.md)
 - [Release checklist](docs/release-checklist.md)
+- [Workflow contract](docs/workflow-contract.md)
 
 ## Project
 

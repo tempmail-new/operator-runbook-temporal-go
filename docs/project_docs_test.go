@@ -21,6 +21,7 @@ func TestRepositoryTrustSurfaces(t *testing.T) {
 			contains: []string{
 				"[Release checklist](docs/release-checklist.md)",
 				"[Workflow contract](docs/workflow-contract.md)",
+				"[Remediation path quickstart](docs/remediation-path-quickstart.md)",
 				"[Contributing](CONTRIBUTING.md)",
 				"[License](LICENSE)",
 				"[Security](SECURITY.md)",
@@ -66,6 +67,7 @@ func TestRepositoryTrustSurfaces(t *testing.T) {
 				"runbook.OperatorRunbookWorkflow",
 				"runbook.RunbookInput",
 				"runbook.RunbookResult",
+				"`simulate_unhealthy`",
 				"`healthy`",
 				"`needs_operator`",
 				"`RunHealthCheck`",
@@ -73,6 +75,26 @@ func TestRepositoryTrustSurfaces(t *testing.T) {
 				"`MaximumAttempts`: `2`",
 				"`run health check`",
 				"`request remediation`",
+			},
+		},
+		{
+			name: "remediation quickstart proves unhealthy path",
+			path: "docs/remediation-path-quickstart.md",
+			contains: []string{
+				"go run ./cmd/start-runbook -runbook-id demo-unhealthy -target checkout -simulate-unhealthy",
+				"`simulate_unhealthy=true`",
+				"`needs_operator`",
+				"`TEMPORAL_TASK_QUEUE`",
+				"synthetic health check failed by request",
+				"real pager, ticketing, metrics, and deployment",
+			},
+		},
+		{
+			name: "local quickstart routes remediation proof",
+			path: "docs/local-temporal-quickstart.md",
+			contains: []string{
+				"[remediation path quickstart](remediation-path-quickstart.md)",
+				"`-simulate-unhealthy`",
 			},
 		},
 		{

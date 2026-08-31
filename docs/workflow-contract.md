@@ -11,6 +11,9 @@ The workflow accepts `runbook.RunbookInput`:
 - `runbook_id`: required caller-owned identifier for the runbook execution.
 - `target`: required operator target, such as a service, queue, or checkout
   path.
+- `simulate_unhealthy`: optional synthetic test toggle. When true, the default
+  health-check activity returns an unhealthy status so the local remediation path
+  can be exercised without editing source.
 
 The workflow validates both fields before scheduling activities. Invalid input
 fails the workflow without running the health check.
@@ -39,9 +42,11 @@ tests and documentation.
 
 ## Activity Boundaries
 
-- `RunHealthCheck` receives `HealthCheckRequest{Target}` and returns
-  `HealthCheckResult{Target, Status, Detail}`. The default implementation is
-  synthetic so the local proof stays self-contained.
+- `RunHealthCheck` receives `HealthCheckRequest{Target, SimulateUnhealthy}` and
+  returns `HealthCheckResult{Target, Status, Detail}`. The default
+  implementation is synthetic so the local proof stays self-contained. With
+  `SimulateUnhealthy` set, it returns `unhealthy` with the detail `synthetic
+  health check failed by request`.
 - `RequestHumanRemediation` receives `RemediationRequest{Target, Reason}` and
   returns `RemediationResult{Action, Detail}`. The default implementation records
   the operator action that would be handed to a human-owned incident or ticketing

@@ -27,11 +27,13 @@ func main() {
 func run(ctx context.Context) error {
 	runbookID := flag.String("runbook-id", "demo", "logical runbook identifier")
 	target := flag.String("target", "checkout", "operator target to check")
+	simulateUnhealthy := flag.Bool("simulate-unhealthy", false, "make the synthetic health check return unhealthy")
 	flag.Parse()
 
 	input := runbook.RunbookInput{
-		RunbookID: *runbookID,
-		Target:    *target,
+		RunbookID:         *runbookID,
+		Target:            *target,
+		SimulateUnhealthy: *simulateUnhealthy,
 	}
 	if err := input.Validate(); err != nil {
 		return err

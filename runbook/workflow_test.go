@@ -102,6 +102,51 @@ func TestOperatorRunbookWorkflow_UnhealthyTargetRequestsRemediation(t *testing.T
 	env.AssertExpectations(t)
 }
 
+func TestOperatorRunbookWorkflow_SimulatedUnhealthyTargetRequestsRemediation(t *testing.T) {
+	var suite testsuite.WorkflowTestSuite
+	env := suite.NewTestWorkflowEnvironment()
+	env.RegisterWorkflow(runbook.OperatorRunbookWorkflow)
+	env.RegisterActivity(runbook.RunHealthCheck)
+	env.RegisterActivity(runbook.RequestHumanRemediation)
+
+	input := runbook.RunbookInput{
+		RunbookID:         "demo",
+		Target:            "checkout",
+		SimulateUnhealthy: true,
+	}
+
+	env.ExecuteWorkflow(runbook.OperatorRunbookWorkflow, input)
+
+	assertWorkflowCompleted(t, env, input)
+
+	var got runbook.RunbookResult
+	if err := env.GetWorkflowResult(&got); err != nil {
+		t.Fatalf("OperatorRunbookWorkflow(%+v) result error = %v, want nil", input, err)
+	}
+
+	want := runbook.RunbookResult{
+		RunbookID: "demo",
+		Target:    "checkout",
+		Verdict:   runbook.VerdictNeedsOperator,
+		Checks: []runbook.HealthCheckResult{
+			{
+				Target: "checkout",
+				Status: runbook.HealthStatusUnhealthy,
+				Detail: "synthetic health check failed by request",
+			},
+		},
+		Remediations: []runbook.RemediationResult{
+			{
+				Action: "page_operator",
+				Detail: "operator review requested for checkout: synthetic health check failed by request",
+			},
+		},
+	}
+	if diff := cmp.Diff(want, got); diff != "" {
+		t.Errorf("OperatorRunbookWorkflow(%+v) mismatch (-want +got):\n%s", input, diff)
+	}
+}
+
 func TestOperatorRunbookWorkflow_ActivityFailureReturnsError(t *testing.T) {
 	var suite testsuite.WorkflowTestSuite
 	env := suite.NewTestWorkflowEnvironment()

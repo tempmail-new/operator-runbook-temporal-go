@@ -13,13 +13,21 @@ For setup or usage questions, open a GitHub issue with:
 
 ## Bug Reports
 
-For reproducible bugs, include:
+For reproducible bugs, open the
+[GitHub bug report issue form](https://github.com/tempmail-new/operator-runbook-temporal-go/issues/new?template=bug.yml).
+It asks for:
 
 - The repository commit or release.
+- The affected area: Temporal server startup, worker registration, starter CLI,
+  workflow verdict, remediation path, validation, or documentation.
+- The Go version, Temporal CLI version, operating system, Temporal address, and
+  task queue.
+- The exact Temporal server, worker, starter, or validation command that
+  reproduces the issue.
 - The workflow input, using synthetic targets.
 - The expected result.
 - The actual result.
-- The output from `go test ./...` when relevant.
+- A minimal public reproduction and relevant logs with secrets removed.
 
 ## Security Reports
 

@@ -77,3 +77,7 @@ integrations remain outside this repository's current scope.
   `TEMPORAL_TASK_QUEUE` as the starter.
 - If the starter cannot connect, confirm `temporal server start-dev` is still
   running and `TEMPORAL_ADDRESS` matches the server address.
+
+For the full recovery checklist covering Temporal startup, worker registration,
+and the expected `needs_operator` result, see the
+[local Temporal troubleshooting guide](local-temporal-troubleshooting.md).

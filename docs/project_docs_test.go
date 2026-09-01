@@ -22,6 +22,7 @@ func TestRepositoryTrustSurfaces(t *testing.T) {
 				"[Release checklist](docs/release-checklist.md)",
 				"[Workflow contract](docs/workflow-contract.md)",
 				"[Remediation path quickstart](docs/remediation-path-quickstart.md)",
+				"[Local Temporal troubleshooting](docs/local-temporal-troubleshooting.md)",
 				"[Contributing](CONTRIBUTING.md)",
 				"[License](LICENSE)",
 				"[Security](SECURITY.md)",
@@ -90,11 +91,36 @@ func TestRepositoryTrustSurfaces(t *testing.T) {
 			},
 		},
 		{
+			name: "local troubleshooting maps recovery checks",
+			path: "docs/local-temporal-troubleshooting.md",
+			contains: []string{
+				"temporal server start-dev",
+				"runbook worker started",
+				"`TEMPORAL_ADDRESS`",
+				"`TEMPORAL_TASK_QUEUE`",
+				"`-simulate-unhealthy`",
+				"\"needs_operator\"",
+				"start runbook failed",
+				"operator-runbook-checkout-",
+				"without adding real pager, ticketing",
+			},
+		},
+		{
 			name: "local quickstart routes remediation proof",
 			path: "docs/local-temporal-quickstart.md",
 			contains: []string{
 				"[remediation path quickstart](remediation-path-quickstart.md)",
+				"[local Temporal troubleshooting guide](local-temporal-troubleshooting.md)",
 				"`-simulate-unhealthy`",
+			},
+		},
+		{
+			name: "remediation quickstart routes troubleshooting",
+			path: "docs/remediation-path-quickstart.md",
+			contains: []string{
+				"[local Temporal troubleshooting guide](local-temporal-troubleshooting.md)",
+				"`needs_operator`",
+				"`TEMPORAL_TASK_QUEUE`",
 			},
 		},
 		{

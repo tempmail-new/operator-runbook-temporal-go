@@ -70,3 +70,7 @@ Use the same `TEMPORAL_TASK_QUEUE` value for both commands.
   same `TEMPORAL_TASK_QUEUE`.
 - If tests fail before a workflow starts, run `gofmt -w .` and `go test ./...`
   again so formatting and generated dependency metadata are current.
+
+For the full recovery checklist covering Temporal startup, worker registration,
+and starter verdicts, see the
+[local Temporal troubleshooting guide](local-temporal-troubleshooting.md).

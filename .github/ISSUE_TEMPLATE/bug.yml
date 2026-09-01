@@ -1,0 +1,135 @@
+name: Bug report
+description: Report a reproducible operator-runbook-temporal-go bug.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a reproducible bug.
+
+        Do not use this form for suspected vulnerabilities, leaked secrets, or private infrastructure details. Follow SECURITY.md instead.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What went wrong?
+      placeholder: The starter returned a healthy verdict when...
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      description: Pick the narrowest matching area.
+      options:
+        - Temporal server startup
+        - Worker registration or task queue
+        - Starter CLI
+        - Workflow verdict
+        - Remediation path
+        - Validation workflow
+        - Documentation
+    validations:
+      required: true
+  - type: input
+    id: repo-version
+    attributes:
+      label: Repository commit or release
+      placeholder: "6574cb82f6a2b124fd48078befb503d5311b9369"
+    validations:
+      required: true
+  - type: input
+    id: go-version
+    attributes:
+      label: Go version
+      placeholder: "go1.22.0"
+    validations:
+      required: true
+  - type: input
+    id: temporal-cli-version
+    attributes:
+      label: Temporal CLI version
+      placeholder: "temporal version output"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: "Ubuntu 24.04, macOS 15, Windows 11"
+    validations:
+      required: true
+  - type: textarea
+    id: temporal-config
+    attributes:
+      label: Temporal configuration
+      description: Include the address and task queue used by both worker and starter.
+      placeholder: |
+        TEMPORAL_ADDRESS=localhost:7233
+        TEMPORAL_TASK_QUEUE=operator-runbook
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: commands
+    attributes:
+      label: Commands
+      description: Include the exact Temporal server, worker, starter, or validation commands that reproduce the issue.
+      placeholder: |
+        temporal server start-dev
+        go run ./cmd/runbook-worker
+        go run ./cmd/start-runbook -runbook-id demo -target checkout
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: workflow-input
+    attributes:
+      label: Workflow input
+      description: Include the runbook ID, target, and whether the synthetic unhealthy toggle was enabled.
+      placeholder: |
+        runbook_id=demo-unhealthy
+        target=checkout
+        simulate_unhealthy=true
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: What should have happened?
+      placeholder: The starter should print a JSON result with verdict needs_operator.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: What happened instead?
+      placeholder: The starter printed...
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal public reproduction
+      description: List the smallest steps needed to reproduce the issue without private infrastructure or real customer data.
+      placeholder: |
+        1. Clone the repository at...
+        2. Start Temporal with...
+        3. Start the worker with...
+        4. Start the workflow with...
+        5. Observe...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or output
+      description: Paste only relevant output. Remove tokens, local secrets, private hostnames, and private incident details.
+      render: text
+    validations:
+      required: false

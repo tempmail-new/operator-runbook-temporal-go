@@ -67,6 +67,7 @@ request. See the remediation quickstart for the full local flow.
 ## Project
 
 - [Contributing](CONTRIBUTING.md)
+- [Bug reports](https://github.com/tempmail-new/operator-runbook-temporal-go/issues/new?template=bug.yml)
 - [License](LICENSE)
 - [Security](SECURITY.md)
 - [Support](SUPPORT.md)

@@ -27,15 +27,17 @@ go build ./...
 ```
 
 Confirm `README.md`, `CONTRIBUTING.md`, `SECURITY.md`, `SUPPORT.md`, and
-`LICENSE` still match the release scope. If a release changes the local Temporal
-run path, rerun `docs/local-temporal-quickstart.md` manually and record the
-result in the release notes.
+`LICENSE` still match the release scope, and update `CHANGELOG.md` before
+tagging. If a release changes the local Temporal run path, rerun
+`docs/local-temporal-quickstart.md` manually and record the result in the
+release notes.
 
 ## Release Notes
 
 Each release note should include:
 
 - The workflow, command, or documentation change that operators can use.
+- A link to the matching `CHANGELOG.md` entry.
 - Any validation evidence, including the local commands above and the hosted
   `validate` workflow result.
 - Any known scope boundaries, especially the absence of production deployment
@@ -51,8 +53,9 @@ the repository.
 1. Start from the latest `origin/main`.
 2. Verify the public pull-request queue is clean or that the release only
    includes already-merged changes.
-3. Run the pre-release validation commands.
-4. Create an annotated tag, for example `git tag -a v0.1.0 -m "Release v0.1.0"`.
-5. Push the tag after validation succeeds.
-6. Publish release notes that link the tag, summarize operator-visible changes,
+3. Confirm `CHANGELOG.md` summarizes the release scope.
+4. Run the pre-release validation commands.
+5. Create an annotated tag, for example `git tag -a v0.1.0 -m "Release v0.1.0"`.
+6. Push the tag after validation succeeds.
+7. Publish release notes that link the tag, summarize operator-visible changes,
    and call out any manual local Temporal smoke result.

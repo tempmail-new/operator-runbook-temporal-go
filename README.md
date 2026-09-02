@@ -58,6 +58,7 @@ request. See the remediation quickstart for the full local flow.
 ## Documentation
 
 - [Architecture](docs/architecture.md)
+- [Changelog](CHANGELOG.md)
 - [Local Temporal quickstart](docs/local-temporal-quickstart.md)
 - [Local Temporal troubleshooting](docs/local-temporal-troubleshooting.md)
 - [Remediation path quickstart](docs/remediation-path-quickstart.md)

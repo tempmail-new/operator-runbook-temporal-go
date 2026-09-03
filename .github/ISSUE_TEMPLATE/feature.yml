@@ -1,0 +1,84 @@
+name: Enhancement proposal
+description: Propose a scoped runbook, workflow, or integration enhancement.
+title: "[Enhancement]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for future runbook, workflow, or integration ideas, not reproducible bugs.
+
+        A good proposal names the operator problem, the smallest useful scope, and a deterministic way to prove the change without private incident details.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Operator problem
+      description: What operator pain, recovery gap, or adoption problem should this enhancement address?
+      placeholder: Operators cannot currently rehearse...
+    validations:
+      required: true
+  - type: dropdown
+    id: enhancement-area
+    attributes:
+      label: Enhancement area
+      description: Pick the narrowest matching area.
+      options:
+        - New runbook step
+        - Existing workflow behavior
+        - Activity boundary
+        - Local quickstart or troubleshooting
+        - Pager or ticketing integration
+        - Deployment or secret handling
+        - Metrics or observability integration
+        - Documentation
+        - Unsure
+    validations:
+      required: true
+  - type: textarea
+    id: proposed-scope
+    attributes:
+      label: Proposed scope
+      description: Describe the smallest change that would solve the problem.
+      placeholder: |
+        Add a synthetic activity boundary for...
+        Keep the first implementation local-only by...
+    validations:
+      required: true
+  - type: textarea
+    id: deterministic-proof
+    attributes:
+      label: Deterministic proof
+      description: How should tests or docs prove this without real pager, ticketing, metrics, deployment, or customer systems?
+      placeholder: |
+        Given a workflow input with...
+        When the activity is mocked to...
+        Then the result includes...
+    validations:
+      required: true
+  - type: textarea
+    id: operator-evidence
+    attributes:
+      label: Operator evidence
+      description: What command output, workflow result, or documentation path should a reviewer inspect?
+      placeholder: |
+        go test ./...
+        go run ./cmd/start-runbook -runbook-id demo -target checkout
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Scope and safety risks
+      description: Name any nondeterminism, secret handling, private incident detail, external dependency, or production-readiness risk.
+      placeholder: Real pager API calls should stay out of the first slice because...
+    validations:
+      required: true
+  - type: textarea
+    id: docs
+    attributes:
+      label: Documentation impact
+      description: Which public docs should change if this enhancement lands?
+      placeholder: README, architecture, workflow contract, quickstart, troubleshooting, support, or release checklist
+    validations:
+      required: false

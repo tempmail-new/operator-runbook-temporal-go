@@ -5,8 +5,9 @@ operator-facing and update this file before tagging a release.
 
 ## Unreleased
 
-- Add this first-class release history surface, README navigation,
-  release-checklist guidance, and deterministic docs regression coverage.
+- Add a GitHub-native enhancement proposal issue form for future runbook,
+  workflow, and integration ideas with README/support routing and deterministic
+  docs regression coverage.
 
 ## 0.1.0 - Initial Public Baseline
 

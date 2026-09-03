@@ -5,6 +5,8 @@ operator-facing and update this file before tagging a release.
 
 ## Unreleased
 
+- Add GitHub issue-template routing that disables blank issues and points setup
+  support plus security reports to the existing public guidance.
 - Add a GitHub-native enhancement proposal issue form for future runbook,
   workflow, and integration ideas with README/support routing and deterministic
   docs regression coverage.

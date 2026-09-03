@@ -164,7 +164,9 @@ func TestRepositoryTrustSurfaces(t *testing.T) {
 			name: "SUPPORT separates usage bugs and security",
 			path: "SUPPORT.md",
 			contains: []string{
+				"GitHub blank issues are disabled",
 				"Usage Questions",
+				"If the question reveals a reproducible failure",
 				"Bug Reports",
 				"GitHub bug report issue form",
 				"Temporal server startup, worker registration, starter CLI",
@@ -223,6 +225,19 @@ func TestRepositoryTrustSurfaces(t *testing.T) {
 				"Scope and safety risks",
 				"private incident detail",
 				"Documentation impact",
+			},
+		},
+		{
+			name: "GitHub issue chooser routes public and private requests",
+			path: ".github/ISSUE_TEMPLATE/config.yml",
+			contains: []string{
+				"blank_issues_enabled: false",
+				"Support and usage questions",
+				"https://github.com/tempmail-new/operator-runbook-temporal-go/blob/main/SUPPORT.md",
+				"route reproducible failures to the bug form",
+				"Security reports",
+				"https://github.com/tempmail-new/operator-runbook-temporal-go/blob/main/SECURITY.md",
+				"private disclosure path",
 			},
 		},
 	}

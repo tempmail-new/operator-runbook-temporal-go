@@ -2,14 +2,20 @@
 
 Use the smallest channel that fits the problem.
 
+GitHub blank issues are disabled so setup questions, reproducible bugs,
+enhancement ideas, and security reports start from the routed paths below.
+
 ## Usage Questions
 
-For setup or usage questions, open a GitHub issue with:
+For setup or usage questions, start here and gather:
 
 - The command you ran.
 - Your Go version.
 - Whether Temporal CLI is installed.
 - The exact error output with secrets removed.
+
+If the question reveals a reproducible failure, open the bug report issue form
+with those details.
 
 ## Bug Reports
 

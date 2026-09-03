@@ -29,6 +29,24 @@ It asks for:
 - The actual result.
 - A minimal public reproduction and relevant logs with secrets removed.
 
+## Enhancement Proposals
+
+For future runbook, workflow, or integration ideas, open the
+[GitHub enhancement proposal issue form](https://github.com/tempmail-new/operator-runbook-temporal-go/issues/new?template=feature.yml).
+It asks for:
+
+- The operator pain, recovery gap, or adoption problem.
+- The narrow enhancement area, such as a runbook step, workflow behavior,
+  activity boundary, local guide, pager or ticketing integration, deployment or
+  secret handling, metrics or observability integration, or documentation.
+- The smallest proposed scope that would solve the problem.
+- The deterministic test or docs proof that does not require real pager,
+  ticketing, metrics, deployment, customer, or private incident systems.
+- The command output, workflow result, or documentation path a reviewer should
+  inspect.
+- The nondeterminism, secret-handling, private-incident, external-dependency,
+  or production-readiness risks.
+
 ## Security Reports
 
 Do not open public issues for vulnerabilities or secret exposure. Follow

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Support and usage questions
+    url: https://github.com/tempmail-new/operator-runbook-temporal-go/blob/main/SUPPORT.md
+    about: Start here for setup questions and route reproducible failures to the bug form.
+  - name: Security reports
+    url: https://github.com/tempmail-new/operator-runbook-temporal-go/blob/main/SECURITY.md
+    about: Follow the private disclosure path for vulnerabilities, leaked secrets, or sensitive infrastructure details.

@@ -28,6 +28,15 @@ This path is intentionally synthetic. It proves the local orchestration branch
 without adding real pager, ticketing, metrics, deployment, or external service
 integrations.
 
+## Inspect Executions In Temporal Web UI
+
+Use the [Temporal Web UI quickstart](temporal-web-ui-quickstart.md) when you
+need native Temporal evidence for the healthy and remediation paths. It shows
+how to open `http://localhost:8233`, choose the `default` namespace, find the
+latest `operator-runbook-checkout-` execution, and inspect the workflow type,
+task queue, event history, input, result, `healthy` verdict, `needs_operator`
+verdict, and `page_operator` remediation action.
+
 ## Recover A Failed Local Proof
 
 Use the [local Temporal troubleshooting guide](local-temporal-troubleshooting.md)

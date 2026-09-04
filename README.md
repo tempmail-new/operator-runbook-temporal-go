@@ -61,6 +61,7 @@ request. See the remediation quickstart for the full local flow.
 - [Changelog](CHANGELOG.md)
 - [Local Temporal quickstart](docs/local-temporal-quickstart.md)
 - [Local Temporal troubleshooting](docs/local-temporal-troubleshooting.md)
+- [Operator journey index](docs/operator-journey-index.md)
 - [Remediation path quickstart](docs/remediation-path-quickstart.md)
 - [Release checklist](docs/release-checklist.md)
 - [Workflow contract](docs/workflow-contract.md)

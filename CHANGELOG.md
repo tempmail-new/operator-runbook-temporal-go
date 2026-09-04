@@ -5,6 +5,9 @@ operator-facing and update this file before tagging a release.
 
 ## Unreleased
 
+- Add a docs-only operator journey index that routes healthy-run proof,
+  remediation proof, local troubleshooting, workflow-contract review, and
+  release hygiene from one README-linked entry point.
 - Add GitHub issue-template routing that disables blank issues and points setup
   support plus security reports to the existing public guidance.
 - Add a GitHub-native enhancement proposal issue form for future runbook,

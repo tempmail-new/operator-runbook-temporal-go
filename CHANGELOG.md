@@ -5,6 +5,8 @@ operator-facing and update this file before tagging a release.
 
 ## Unreleased
 
+- Add a docs-only Temporal Web UI quickstart for inspecting healthy and
+  remediation executions in Temporal's native local UI.
 - Add a docs-only operator journey index that routes healthy-run proof,
   remediation proof, local troubleshooting, workflow-contract review, and
   release hygiene from one README-linked entry point.

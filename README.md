@@ -64,6 +64,7 @@ request. See the remediation quickstart for the full local flow.
 - [Operator journey index](docs/operator-journey-index.md)
 - [Remediation path quickstart](docs/remediation-path-quickstart.md)
 - [Release checklist](docs/release-checklist.md)
+- [Temporal CLI inspection quickstart](docs/temporal-cli-inspection-quickstart.md)
 - [Temporal Web UI quickstart](docs/temporal-web-ui-quickstart.md)
 - [Workflow contract](docs/workflow-contract.md)
 

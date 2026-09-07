@@ -37,6 +37,16 @@ latest `operator-runbook-checkout-` execution, and inspect the workflow type,
 task queue, event history, input, result, `healthy` verdict, `needs_operator`
 verdict, and `page_operator` remediation action.
 
+## Inspect Executions From The CLI
+
+Use the [Temporal CLI inspection quickstart](temporal-cli-inspection-quickstart.md)
+when you need the same evidence in a headless terminal. It lists the latest
+`operator-runbook-checkout-` executions, then uses `temporal workflow describe`,
+`temporal workflow show`, and `temporal workflow result` against the `default`
+namespace on `localhost:7233` to verify the workflow type, task queue, completed
+status, `RunHealthCheck`, `RequestHumanRemediation`, `healthy` verdict,
+`needs_operator` verdict, and `page_operator` remediation action.
+
 ## Recover A Failed Local Proof
 
 Use the [local Temporal troubleshooting guide](local-temporal-troubleshooting.md)
